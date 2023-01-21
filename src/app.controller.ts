@@ -14,5 +14,10 @@ export class AppController {
   getTest(): string {
     return this.appService.getTest();
   }
+  
+  @Get('ping')
+  getTest(): string {
+    return this.appService.getPing();
+  }
 
 }
