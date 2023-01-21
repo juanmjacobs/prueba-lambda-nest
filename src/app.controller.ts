@@ -9,15 +9,14 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
-
-  @Get('test')
-  getTest(): string {
-    return this.appService.getTest();
-  }
   
   @Get('ping')
   getTest(): string {
     return this.appService.getPing();
   }
-
+  
+  @Get('test')
+  getTest(): string {
+    return this.appService.getTest();
+  }
 }
