@@ -23,3 +23,6 @@ functions:
       - http:
           method: any
           path: /{any+}
+    warmup:
+      default:
+        enabled: true
