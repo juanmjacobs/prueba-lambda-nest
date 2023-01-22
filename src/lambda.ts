@@ -31,5 +31,9 @@ async function bootstrapServer(): Promise<Server> {
 
 export const handler: Handler = async (event: any, context: Context) => {
  cachedServer = await bootstrapServer();
+ if (event.source === 'serverless-plugin-warmup') {
+   console.log('WarmUP - Lambda is warm!')
+   return 'Lambda is warm!';
+ }
  return proxy(cachedServer, event, context, 'PROMISE').promise;
 }
