@@ -15,7 +15,7 @@ custom:
     default:
       enabled: true
       events:
-        - schedule: rate(1 minutes)
+        - schedule: rate(1 minute)
         
 functions:
   main: # The name of the lambda function
