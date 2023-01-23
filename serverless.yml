@@ -1,8 +1,9 @@
 service: nest-serverless-lambda-demo
 
 plugins:
-  - serverless-plugin-typescript
+  - serverless-plugin-warmup-ts-bridge-v2
   - serverless-plugin-warmup
+  - serverless-plugin-typescript
   - serverless-plugin-optimize
   - serverless-offline
 
@@ -12,9 +13,10 @@ provider:
 
 custom:
   warmup:
-    enabled: true
-    events:
-      - schedule: rate(5 minutes)       
+    myWarmer:
+      enabled: true
+      events:
+        - schedule: rate(5 minutes)       
 functions:
   main: # The name of the lambda function
    # The module 'handler' is exported in the file 'src/lambda'
@@ -23,9 +25,3 @@ functions:
       - http:
           method: any
           path: /{any+}
-    warmup:
-      default:
-        enabled:
-          - dev
-          - staging
-          - prod
